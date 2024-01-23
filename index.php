@@ -1,3 +1,28 @@
+<?php
+
+
+
+function getMessage()
+{
+    $message = "Visiteur";
+    $messageVisiteur = null;
+
+    if(isset($_GET['name']) && !empty($_GET['name'])){
+        $messageVisiteur = htmlspecialchars($_GET['name']);
+    }
+
+    if($messageVisiteur){
+        $message = $messageVisiteur;
+    }
+
+
+    return $message;
+}
+
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,26 +30,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Projet Gaetan</title>
+
+
 </head>
 <body>
- <h1>Bonjour je suis le projet de TP </h1>
- <h4> bonjour <?= getMessages() ?></h4>
 
- <?php
-    $messages = "Visiteurs";
-    $messageVisiteur = null;
-    if(isset($_GET['name'])) && !empty($_GET['name'])) {
-    $messageVisiteur = htmlspecialchars($_GET['name']);
-    if($messageVisiteur){
-        $messages = $messageVisiteur;
-    }
- }
+<h1>Bonjour je suis le projet gaetan</h1>
+<p>si vous voyez cette page c'est que je suis en ligne</p>
 
-    function getMessages($messages)
-    {
-        return $messages;
-    }
-?>
+<h4>Bonjour <?= getMessage() ?></h4>
+
+
+
+<form action="index.php" method="get">
+    <div><input type="text" name="name" id="" placeholder="name"></div>
+    <div>
+        <button type="submit">OK</button>
+    </div>
+</form>
+
 </body>
 </html>
